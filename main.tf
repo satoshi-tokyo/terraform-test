@@ -6,11 +6,11 @@ terraform {
     }
   }
   backend "s3" {
-    bucket         = "my-unique-bucket-21aa2d99"
-    key            = "state/terraform.tfstate"
-    region         = "ap-northeast-1"
-    encrypt        = true
-    dynamodb_table = "my-components_tf_lockid"
+    bucket       = "my-unique-bucket-21aa2d99"
+    key          = "state/terraform.tfstate"
+    region       = "ap-northeast-1"
+    encrypt      = true
+    use_lockfile = true
   }
 }
 
@@ -52,4 +52,3 @@ resource "aws_s3_bucket_public_access_block" "app" {
   ignore_public_acls      = true
   restrict_public_buckets = true
 }
-
